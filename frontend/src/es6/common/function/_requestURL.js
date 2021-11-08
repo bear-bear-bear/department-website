@@ -1,5 +1,5 @@
 const requestURL = {
-  host: 'https://www.ddccomputer.club',
+  host: 'https://www.ddccomputer.com',
   localhost: 'http://localhost:8001',
 
   get url() {

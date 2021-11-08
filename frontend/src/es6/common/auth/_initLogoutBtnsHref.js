@@ -8,7 +8,7 @@ const initLogoutBtnsHref = () => {
   const host =
     process.env.NODE_ENV === 'development'
       ? 'http://localhost:8001'
-      : 'https://www.ddccomputer.club';
+      : 'https://www.ddccomputer.com';
 
   logoutBtns.forEach((logoutBtn) => logoutBtn.setAttribute('href', `${host}/auth/logout`));
 };

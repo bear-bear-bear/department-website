@@ -1,4 +1,4 @@
-// https://www.ddccomputer.club/[게시판 이름]/api/create-bulk?count=60
+// https://www.ddccomputer.com/[게시판 이름]/api/create-bulk?count=60
 // 위 API로 게시판에 가상 게시글 형성 가능
 const allPath = {
   intro: ['info', 'member', 'env', 'club'],
