@@ -42,7 +42,9 @@ db.Admin = admin;
 
 Object.keys(db).forEach(modelName => {
   db[modelName].init(sequelize);
+});
 
+Object.keys(db).forEach(modelName => {
   if (db[modelName].associate) {
     db[modelName].associate(db);
   }
