@@ -2,8 +2,8 @@
   "name": "frontend",
   "main": "app.js",
   "scripts": {
-    "build": "rmdir /s /q ..\\server\\src\\public && webpack -w",
-    "build:linux": "webpack -w",
+    "build": "npx cross-env NODE_ENV=production rmdir /s /q ..\\server\\src\\public && webpack -w",
+    "build:linux": "npx cross-env NODE_ENV=production webpack -w",
     "start": "node app.js",
     "server": "cd ../server && yarn start"
   },
@@ -58,9 +58,11 @@
     "file-loader": "^6.1.0",
     "helmet": "^4.1.0",
     "mariadb": "^2.4.2",
+    "method-override": "^3.0.0",
     "mini-css-extract-plugin": "^0.11.2",
     "morgan": "^1.10.0",
     "node-sass": "^4.14.1",
+    "pm2": "^4.5.0",
     "pug-loader": "^2.4.0",
     "resolve-url-loader": "^3.1.1",
     "sass-loader": "^10.0.2",
@@ -69,8 +71,6 @@
     "webpack": "^4.44.1",
     "webpack-cli": "^3.3.12",
     "webpack-dev-middleware": "^3.7.2",
-    "webpack-dev-server": "^3.11.0",
-    "method-override": "^3.0.0",
-    "pm2": "^4.5.0"
+    "webpack-dev-server": "^3.11.0"
   }
 }
