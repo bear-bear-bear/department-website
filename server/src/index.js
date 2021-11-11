@@ -69,10 +69,10 @@ app.use(
   둘의 차이는 nested를 지원하느냐 하지 않느냐
   https://stackoverflow.com/questions/29960764/what-does-extended-mean-in-express-4-0/45690436#45690436
 */
-app.use(cookieParser(process.env.secret)); // 쿠키 생성 관련 미들웨어
+app.use(cookieParser(process.env.COOKIE_SECRET)); // 쿠키 생성 관련 미들웨어
 app.use(
   session({
-    secret: process.env.secret,
+    secret: process.env.COOKIE_SECRET,
     proxy: true,
     resave: true,
     saveUninitialized: false,
