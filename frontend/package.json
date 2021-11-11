@@ -2,7 +2,7 @@
   "name": "frontend",
   "main": "app.js",
   "scripts": {
-    "build": "npx cross-env NODE_ENV=production rmdir /s /q ..\\server\\src\\public && webpack -w",
+    "build": "rmdir /s /q ..\\server\\src\\public && npx cross-env NODE_ENV=production webpack -w",
     "build:linux": "npx cross-env NODE_ENV=production webpack -w",
     "start": "node app.js",
     "server": "cd ../server && yarn start"
