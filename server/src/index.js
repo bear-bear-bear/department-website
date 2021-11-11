@@ -30,13 +30,15 @@ import mileRouter from './routes/category/milestone';
 const app = express(); // 서버 객체 생성
 config(); // 환경변수 불러오기
 passportConfig();
-connectMaria(); // DB 검증 및 연결
+(async () => {
+  await connectMaria();
+})(); // DB 검증 및 연결
 const sessionStore = new MySQLStore({
   host: process.env.MARIADB_HOST,
   port: process.env.MARIADB_PORT,
   user: process.env.MARIADB_USERNAME,
   password: process.env.MARIADB_PASSWORD,
-  database: process.env.MARIADB_TEST_DATABASE,
+  database: process.env.MARIADB_DATABASE,
 }); // 세션 유지 함수
 
 

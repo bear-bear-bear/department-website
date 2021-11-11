@@ -1,5 +1,5 @@
 import Sequelize from 'sequelize';
-import env from './config';
+import { production } from './config';
 import user from './User';
 import certpost from './certpost';
 import suggest from './suggest';
@@ -15,7 +15,7 @@ import comment from './comment';
 import admin from './admin';
 
 
-const config = env;
+const config = production;
 process.env.MARIADB_STATUS = config.database;
 const db = {};
 
@@ -24,7 +24,7 @@ export const sequelize = new Sequelize(
   config.username,
   config.password,
   config,
-  );
+);
 
 db.User = user;
 db.Certpost = certpost;
@@ -42,9 +42,7 @@ db.Admin = admin;
 
 Object.keys(db).forEach(modelName => {
   db[modelName].init(sequelize);
-})
 
-Object.keys(db).forEach(modelName => {
   if (db[modelName].associate) {
     db[modelName].associate(db);
   }
