@@ -50,7 +50,7 @@ mixin postView(post, referrer, accessUser, comments)
     section.post-view__content
       section.post-view__content__images
         each image in post.Images
-          - const src = `https://www.ddccomputer.com/uploads/${image.src}`
+          - const src = `https://ddccomputer.com/uploads/${image.src}`
           img(src= src).post-view__content__image
       //- 개발 환경 이미지 로드 불가 안내를 위한 이미지 유무 검증
       - const isImage = Boolean(post.Images[0]);

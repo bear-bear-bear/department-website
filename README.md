@@ -1,4 +1,4 @@
-# [컴퓨터정보학과 웹 서비스](https://www.ddccomputer.com)   
+# [컴퓨터정보학과 웹 서비스](https://ddccomputer.com)   
   
 --- 
 ![웹사이트모습](preview/full_pc.PNG)
