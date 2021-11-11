@@ -9,20 +9,20 @@ config();
 
 const initLog = {
   // 현재 데이터베이스 상태를 저장하는 객체
-  mariadbStatus: {
+  mysqlStatus: {
     information: {
-      username: process.env.MARIADB_USERNAME,
-      database: process.env.MARIADB_STATUS
+      username: process.env.MYSQL_USERNAME,
+      database: process.env.MYSQL_STATUS
     }
   },
 
   // 데이터베이스상태를 콘솔에 출력해주는 메서드 
-  mariadbStatusText() {
-    console.group('mariadb-connection');
+  mysqlStatusText() {
+    console.group('mysql-connection');
     console.log('GCP 가상서버의 MariaDB 서버로 성공적으로 연결되었습니다.')
-    console.log(`연결된 사용자: ${process.env.MARIADB_USERNAME}`);
-    console.log(`연결된 데이터베이스: ${process.env.MARIADB_STATUS}\n`);
-    console.groupEnd('mariadb-connection');
+    console.log(`연결된 사용자: ${process.env.MYSQL_USERNAME}`);
+    console.log(`연결된 데이터베이스: ${process.env.MYSQL_STATUS}\n`);
+    console.groupEnd('mysql-connection');
   },
 
   showHost() {
@@ -51,11 +51,11 @@ const initLog = {
 
   // 에러관련 프로퍼티나 메서드를 정의하는 객체
   error: {
-    // log/mariadb.log에 에러내용을 기록해주는 메서드
+    // log/mysql.log에 에러내용을 기록해주는 메서드
     writeMariaLog(e) {
-      const wstream = fs.createWriteStream('log/mariadb.log');
+      const wstream = fs.createWriteStream('log/mysql.log');
       wstream.write(String(e), 'utf-8', () => {
-        console.log('log/mariadb.log에 성공적으로 에러를 기록하였습니다.');
+        console.log('log/mysql.log에 성공적으로 에러를 기록하였습니다.');
       });
       wstream.on('finish', () => console.log('로그를 기록했습니다.'));
     }
@@ -68,8 +68,8 @@ const connectMaria = async () => {
     // DB 연결 성공 
     .then(() => { 
       console.log('\n\n\n+====================== DATABASE_INFO =======================+\n');
-        console.table(initLog.mariadbStatus);
-        initLog.mariadbStatusText();
+        console.table(initLog.mysqlStatus);
+        initLog.mysqlStatusText();
       console.log('+========================== MEMBER ==========================+\n');
       console.table(initLog.introduce);
       console.log('+=========================== HOST ===========================+\n');
@@ -80,7 +80,7 @@ const connectMaria = async () => {
       console.log('\n !!!!!!!!!!!!! ERRROR !!!!!!!!!!!!!');
       console.log('외부 디비서버 접근이 실패했습니다.');
 
-      const isFile = fs.existsSync('log/mariadb.log', (exist) => {
+      const isFile = fs.existsSync('log/mysql.log', (exist) => {
         return (exist) ? exist : null;
       });
       
@@ -89,8 +89,8 @@ const connectMaria = async () => {
       } else {
 
         console.log('로그 파일이 존재하지 않습니다.');
-        fs.open('log/mariadb.log', 'w+', () => {
-          console.log('mariadb.log 로그 파일을 생성하였습니다.');
+        fs.open('log/mysql.log', 'w+', () => {
+          console.log('mysql.log 로그 파일을 생성하였습니다.');
         });
         initLog.error.writeMariaLog(e);
       }

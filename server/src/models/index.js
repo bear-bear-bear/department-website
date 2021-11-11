@@ -16,7 +16,7 @@ import admin from './admin';
 
 
 const config = production;
-process.env.MARIADB_STATUS = config.database;
+process.env.MYSQL_STATUS = config.database;
 const db = {};
 
 export const sequelize = new Sequelize(

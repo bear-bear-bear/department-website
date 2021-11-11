@@ -34,11 +34,11 @@ passportConfig();
   await connectMaria();
 })(); // DB 검증 및 연결
 const sessionStore = new MySQLStore({
-  host: process.env.MARIADB_HOST,
-  port: process.env.MARIADB_PORT,
-  user: process.env.MARIADB_USERNAME,
-  password: process.env.MARIADB_PASSWORD,
-  database: process.env.MARIADB_DATABASE,
+  host: process.env.MYSQL_HOST,
+  port: process.env.MYSQL_PORT,
+  user: process.env.MYSQL_USERNAME,
+  password: process.env.MYSQL_PASSWORD,
+  database: process.env.MYSQL_DATABASE,
 }); // 세션 유지 함수
 
 

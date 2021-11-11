@@ -4,12 +4,12 @@ require('dotenv').config();
 const env = process.env;
 
 const development = {
-  username: env.MARIADB_USERNAME,
-  password: env.MARIADB_PASSWORD,
-  database: env.MARIADB_DATABASE,
-  host: env.MARIADB_HOST,
-  dialect: 'mariadb',
-  port: env.MARIADB_PORT,
+  username: env.MYSQL_USERNAME,
+  password: env.MYSQL_PASSWORD,
+  database: env.MYSQL_DATABASE,
+  host: env.MYSQL_HOST,
+  dialect: 'mysql',
+  port: env.MYSQL_PORT,
   dialectOptions: {
     charset: 'utf8mb4_general_ci',
     dataString: true,
@@ -23,24 +23,24 @@ const development = {
 };
 
 const production = {
-  username: env.MARIADB_USERNAME,
-  password: env.MARIADB_PASSWORD,
-  database: env.MARIADB_DATABASE,
-  host: env.MARIADB_HOST,
-  dialect: 'mariadb',
-  port: env.MARIADB_PORT,
+  username: env.MYSQL_USERNAME,
+  password: env.MYSQL_PASSWORD,
+  database: env.MYSQL_DATABASE,
+  host: env.MYSQL_HOST,
+  dialect: 'mysql',
+  port: env.MYSQL_PORT,
   dialectOptions: {
     timezone: 'Asia/Seoul',
   },
 };
 
 const test = {
-  username: env.MARIADB_USERNAME,
-  password: env.MARIADB_PASSWORD,
-  database: env.MARIADB_TEST_DATABASE,
-  host: env.MARIADB_HOST,
-  dialect: 'mariadb',
-  port: env.MARIADB_PORT,
+  username: env.MYSQL_USERNAME,
+  password: env.MYSQL_PASSWORD,
+  database: env.MYSQL_TEST_DATABASE,
+  host: env.MYSQL_HOST,
+  dialect: 'mysql',
+  port: env.MYSQL_PORT,
   pool: {
     max: 5,
     min: 0,

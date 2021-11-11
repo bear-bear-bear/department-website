@@ -39,9 +39,9 @@
     "express-mysql-session": "^2.1.4",
     "faker": "^5.1.0",
     "helmet": "^4.1.0",
-    "mariadb": "^2.4.2",
     "method-override": "^3.0.0",
     "morgan": "^1.10.0",
+    "mysql": "^2.18.1",
     "pm2": "^4.5.0",
     "sequelize-cli": "^6.3.0"
   }
