@@ -89,7 +89,7 @@ const connectMaria = async () => {
       } else {
 
         console.log('로그 파일이 존재하지 않습니다.');
-        fs.open('log/mariadb.log', 'w+', (err, fd) => {
+        fs.open('log/mariadb.log', 'w+', () => {
           console.log('mariadb.log 로그 파일을 생성하였습니다.');
         });
         initLog.error.writeMariaLog(e);

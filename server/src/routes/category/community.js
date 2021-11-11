@@ -1,4 +1,4 @@
-import {getRenderCreate, isLoggedIn, isNotLoggedIn} from "../../controllers/post";
+import {getRenderCreate, isLoggedIn} from "../../controllers/post";
 import postBoard, { uploads } from '../../controllers/crud/post';
 import deletePost from '../../controllers/crud/delete';
 import updatePost from '../../controllers/crud/update';
@@ -17,7 +17,6 @@ const {
   Donate,
   Suggest,
   Notice,
-  Comment
 } = sequelize;
 
 // Router & Controllers ( 차 후 분리 필요 )
@@ -49,11 +48,11 @@ community.get('/board/api/create-bulk', (req, res, next) => {
   console.log('get /board/api/create-bulk');
   res.redirect('/community/board');
 });
-community.get('^\/board\/api$', (req, res, next) => {
+community.get('^/board/api$', (req, res, next) => {
   getPostsList(req, res, next)(Community);
   console.log('get /board/api');
 });
-community.get('/board/:id([0-9]+)/update', isLoggedIn, async (req, res, next) => {
+community.get('/board/:id([0-9]+)/update', isLoggedIn, async (req, res) => {
   const redirectUrl = req.originalUrl
     .match(/\/[a-z]+\/\w+\/\w+/)
     .join('');
@@ -93,13 +92,13 @@ community.get('/donation/api/create-bulk', (req, res, next) => {
   createBulkBoard(req, next)(Donate);
   res.redirect('/community/donation');
 });
-community.get('\/donation\/api$', (req, res, next) => {
+community.get('/donation/api$', (req, res, next) => {
   getPostsList(req, res, next)(Donate);
 });
 community.delete('/donation/:id([0-9]+)/delete', isLoggedIn, (req, res, next) => {
   deletePost(req, res, next)(Donate);
 });
-community.get('/donation/:id([0-9]+)/update', isLoggedIn, (req, res, next) => {
+community.get('/donation/:id([0-9]+)/update', isLoggedIn, (req, res) => {
   res.render('import/community/update');
 });
 community.patch('/donation/:id([0-9]+)/update', (req, res, next) => {
@@ -129,13 +128,13 @@ community.get('/suggestion/api/create-bulk', (req, res, next) => {
   createBulkBoard(req, next)(Suggest);
   res.redirect('/community/suggestion');
 });
-community.get('\/suggestion\/api$', (req, res, next) => {
+community.get('/suggestion/api$', (req, res, next) => {
   getPostsList(req, res, next)(Suggest);
 });
 community.delete('/suggestion/:id([0-9]+)/delete', (req, res, next) => {
   deletePost(req, res, next)(Suggest);
 });
-community.get('/suggestion/:id([0-9]+)/update', isLoggedIn, (req, res, next) => {
+community.get('/suggestion/:id([0-9]+)/update', isLoggedIn, (req, res) => {
   res.render('import/community/update');
 });
 community.patch('/suggestion/:id([0-9]+)/update', (req, res, next) => {
@@ -163,13 +162,13 @@ community.get('/notice/api/create-bulk', (req, res, next) => {
   createBulkBoard(req, next)(Notice);
   res.redirect('/community/notice');
 });
-community.get('\/notice\/api$', (req, res, next) => {
+community.get('/notice/api$', (req, res, next) => {
   getPostsList(req, res, next)(Notice);
 });
 community.delete('/notice/:id([0-9]+)/delete', (req, res, next) => {
   deletePost(req, res, next)(Notice);
 });
-community.get('/notice/:id([0-9]+)/update', isLoggedIn, (req, res, next) => {
+community.get('/notice/:id([0-9]+)/update', isLoggedIn, (req, res) => {
   res.render('import/community/update');
 });
 community.patch('/notice/:id([0-9]+)/update', (req, res, next) => {

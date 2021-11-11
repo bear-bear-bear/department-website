@@ -121,7 +121,7 @@ app.use('/', (req, res, next) => {
   const err = new Error('Not Found');
   next(err);
 });
-app.use((err, req, res, next) => {
+app.use((err, req, res) => {
   err.status = 404;
   console.log(err);
   res.render('common/error/404', { err });

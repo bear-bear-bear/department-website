@@ -1,19 +1,19 @@
-import { join, login, postLogin, postJoin, forgotHash } from '../controllers/auth';
+import { join, login, postJoin, forgotHash } from '../controllers/auth';
 import sendMail from '../controllers/mailer';
 import sequelize from '../models';
 import bcrypt from 'bcrypt';
 import url from 'url';
-const { User } = sequelize;
 import { isLoggedIn, isNotLoggedIn } from '../controllers/post';
 import passport from 'passport';
-import { appState } from '../index';
+// import { appState } from '../index';
+
+const { User } = sequelize;
 
 const auth = require('express').Router();
 
-
 auth.get('/login', isNotLoggedIn, login);
 auth.post('/login', (req, res, next) => {
-    passport.authenticate('local', (err, user, info) => {
+    passport.authenticate('local', (err, user) => {
       if (err) {
         console.log(err);
         return res.redirect('/?error=login_failed');

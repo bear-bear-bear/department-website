@@ -9,7 +9,6 @@ import updatePost from "../../controllers/crud/update";
 import readPost from "../../controllers/crud/read";
 import {getRenderCreate, isLoggedIn} from "../../controllers/post";
 import addComment from "../../controllers/comment";
-import community from "./community";
 
 const { 
   Certpost,
@@ -39,13 +38,13 @@ footprint.get('/acquisition/api/create-bulk', (req, res, next) => {
   createBulkBoard(req, next)(Certpost);
   res.redirect('/footprint/acquisition');
 });
-footprint.get('\/acquisition\/api$', (req, res, next) => {
+footprint.get('/acquisition/api$', (req, res, next) => {
   getPostsList(req, res, next)(Certpost);
 });
 footprint.delete('/acquisition/:id([0-9]+)/delete', isLoggedIn, (req, res, next) => {
   deletePost(req, res, next)(Certpost);
 });
-footprint.patch('/acquisition/:id([0-9]+)/update', isLoggedIn, (req, res, next) => {
+footprint.patch('/acquisition/:id([0-9]+)/update', isLoggedIn, (req, res) => {
   res.render('import/footprint/update');
 });
 footprint.patch('/acquisition/:id([0-9]+)/update', isLoggedIn, (req, res, next) => {
@@ -74,7 +73,7 @@ footprint.get('/awards/api/create-bulk', (req, res, next) => {
   createBulkBoard(req, next)(Award);
   res.redirect('/footprint/awards');
 });
-footprint.get('\/awards\/api$', (req, res, next) => {
+footprint.get('/awards/api$', (req, res, next) => {
   getPostsList(req, res, next)(Award);
 });
 footprint.delete('/awards/:id([0-9]+)/delete', isLoggedIn,  (req, res, next) => {
@@ -106,7 +105,7 @@ footprint.get('/portfolio/api/create-bulk', (req, res, next) => {
   createBulkBoard(req, next)(Portfolio);
   res.redirect('/footprint/portfolio');
 });
-footprint.get('\/portfolio\/api$', (req, res, next) => {
+footprint.get('/portfolio/api$', (req, res, next) => {
   getPostsList(req, res, next)(Portfolio);
 });
 footprint.get('/portfolio/post', (req, res) => {

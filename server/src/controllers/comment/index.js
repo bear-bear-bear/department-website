@@ -1,7 +1,7 @@
 import sequelize from '../../models';
-const { Comment, User, Community } = sequelize;
+const { Comment, User } = sequelize;
 
-const addComment = (req, res, next) => {
+const addComment = (req, res) => {
   const { data } = req.body;
   const currentUser = req.user.id;
   const postId = req.originalUrl.match(/[0-9]+/).join('');

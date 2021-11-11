@@ -41,7 +41,7 @@ const postBoard = (req, res, next) => {
     return res.redirect(redirectUrl);
   }
 
-  req.files.map((image, i) => {
+  req.files.map((image) => {
     if (!image.mimetype.includes('image')) {
       throw Error('확장자가 이미지가 아닙니다.');
     }

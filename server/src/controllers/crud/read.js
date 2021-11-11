@@ -4,19 +4,19 @@ const { Inquiry, Image, Comment } = sequelize;
 const inquiryPost = page => {
   switch (page) {
     case 'board':
-      return 'CommunityId'; break;
+      return 'CommunityId';
     case 'donation':
-      return 'DonatePostId'; break;
+      return 'DonatePostId';
     case 'suggestion':
-      return 'SuggestPostId'; break;
+      return 'SuggestPostId';
     case 'notice':
-      return 'NoticeId'; break;
+      return 'NoticeId';
     case 'acquisition':
-      return 'CertPostId'; break;
+      return 'CertPostId';
     case 'awards':
-      return 'AwardPostId'; break;
+      return 'AwardPostId';
     case 'portfolio':
-      return 'PortfolioPostId'; break;
+      return 'PortfolioPostId';
     default:
       return null;
   }

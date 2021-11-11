@@ -1,4 +1,4 @@
-export const getRenderCreate = (req, res, next) => {
+export const getRenderCreate = (req, res) => {
   const redirectUrl = req.originalUrl
     .match(/\/[a-z]+/g);
 
